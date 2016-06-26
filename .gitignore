@@ -1,0 +1,40 @@
+# Application
+web/content/plugins/*
+!web/content/plugins/.gitkeep
+web/content/mu-plugins/*/
+web/content/upgrade
+web/content/uploads/*
+!web/content/uploads/.gitkeep
+
+# WordPress
+web/wp
+web/.htaccess
+
+# WP-CLI
+db-sync
+*.sql
+
+# Dotenv
+.env
+.env.*
+!.env.example
+
+# Vendor (e.g. Composer)
+vendor/*
+!vendor/.gitkeep
+
+# Node Package Manager
+node_modules
+
+# Vagrant
+bin
+.vagrant
+
+# Docker
+docker/mysql/*.sql
+
+# Bundle
+.bundle
+
+# Logging
+log
