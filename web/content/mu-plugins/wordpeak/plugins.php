@@ -3,7 +3,7 @@
 namespace WordPeak;
 
 $plugins = [
-	'framework/framework.php'
+	'foundation/foundation.php'
 ];
 
 foreach ( $plugins as $plugin ) {
