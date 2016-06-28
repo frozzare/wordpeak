@@ -92,7 +92,7 @@ add_action( 'init', function () {
 
 	// Add theme headers without a stylesheet file.
 	cache_add( 'theme', [
-		'headers' => apply_filters( 'wordpeak_theme_info', [
+		'headers' => apply_filters( 'wordpeak_theme_headers', [
 			'Author'      => 'Fredrik Forsmo',
 			'AuthorURI'   => 'https://frozzare.com',
 			'Description' => 'Just a theme',
