@@ -72,6 +72,11 @@ define( 'DISABLE_WP_CRON', env( 'DISABLE_WP_CRON' ) ?: false );
 define( 'DISALLOW_FILE_EDIT', true );
 
 /**
+ * Define default theme.
+ */
+define( 'WP_DEFAULT_THEME', 'app' );
+
+/**
  * Bootstrap WordPress.
  */
 if ( ! defined( 'ABSPATH' ) ) {
