@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html {{ language_attributes() }}>
+	{% include 'framework/head.twig' %}
+	<body {{ body_class() }}>
+		{% include 'framework/header.twig' %}
+		<div id="content">
+      {% block content %}
+      {% endblock %}
+		</div>
+		{% include 'framework/footer.twig' %}
+		{{ wp_footer() }}
+	</body>
+</html>
