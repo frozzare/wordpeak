@@ -2,6 +2,10 @@
 
 Experimental WordPress stack build on top of [Bedrock](https://roots.io/bedrock/). Plugins may not work with this structure.
 
+## The theme
+
+The theme use [Digster](https://github.com/frozzare/wp-digster) to render Twig views.
+
 ## Folder structure
 
 - `web/app` is the theme directory
