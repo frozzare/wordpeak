@@ -10,8 +10,9 @@
  */
 
 $files = [
+	'bedrock.php',
 	'plugins.php',
-	'theme.php'
+	'theme.php',
 ];
 
 foreach ( $files as $file ) {

@@ -3,6 +3,15 @@
 namespace WordPeak;
 
 /**
+ * Change stylesheet directory.
+ *
+ * @return string
+ */
+add_filter( 'stylesheet_directory', function () {
+	return apply_filters( 'wordpeak_stylesheet_directory', ABSPATH . '/../app/templates' );
+} );
+
+/**
  * Change theme root uri to home uri.
  *
  * @return string
@@ -37,7 +46,7 @@ add_filter( 'stylesheet', __NAMESPACE__ . '\\theme_name' );
  * Add theme headers information without a stylesheet file.
  */
 add_action( 'init', function () {
-	wp_cache_add( 'theme' . '-' . md5( WPMU_PLUGIN_DIR . '/../../' . theme_name() ), [
+	wp_cache_add( 'theme' . '-' . md5( ABSPATH . '../' . theme_name() ), [
 		'headers' => apply_filters( 'wordpeak_theme_info', [
 			'Author'      => 'Fredrik Forsmo',
 			'AuthorURI'   => 'https://frozzare.com',
