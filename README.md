@@ -8,7 +8,7 @@ The base theme use [Digster](https://github.com/frozzare/wp-digster) to render T
 
 ### style.css
 
-You can forget about the `style.css` file and add theme information using `wordpeak_theme_headers`.
+You can forget about the `style.css` file and add theme information using `wordpeak_theme_headers`. This data will be stored in the WordPress cache.
 
 ```php
 add_filter( 'wordpeak_theme_headers', function ( $headers ) {
@@ -46,7 +46,7 @@ Default theme headers:
 
 ## Object cache
 
-Since h
+WordPeak store some information in the WordPress cache and with object cache we needed to fix some things for multisites and which group key should be used when. The cache function does support [WP Redis](https://github.com/pantheon-systems/wp-redis) from Pantheon, other object cache plugins may not work and may break the `style.css` cache.
 
 ## License
 
