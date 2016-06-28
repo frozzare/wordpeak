@@ -1,6 +1,6 @@
 # WordPeak
 
-Experimental WordPress stack build on top of [Bedrock](https://roots.io/bedrock/). Plugins may not work with this structure.
+Experimental WordPress stack build on top of [Bedrock](https://github.com/roots/bedrock). Plugins may not work with this structure.
 
 ## The theme
 
@@ -23,7 +23,7 @@ add_filter( 'wordpeak_theme_headers', function ( $headers ) {
     'Status'      => 'Status',
     'Tags'        => 'Tags',
     'TextDomain'  => 'Text Domain',
-    'DomainPath'  => 'Domain Path',
+    'DomainPath'  => 'Domain Path'
   ] );
 } );
 ```
