@@ -38,7 +38,7 @@ add_action( 'theme_root_uri', function() {
  * @return string
  */
 add_filter( 'theme_root', function () {
-	return apply_filters( 'wordpeak_theme_root', ABSPATH . '/..' );
+	return apply_filters( 'wordpeak_theme_root', ABSPATH . '..' );
 } );
 
 /**
