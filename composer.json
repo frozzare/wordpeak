@@ -19,14 +19,15 @@
     "vlucas/phpdotenv": "^2.0.1",
     "johnpbloch/wordpress": "^4.5",
     "oscarotero/env": "^1.0",
-    "roots/wp-password-bcrypt": "1.0.0"
+    "roots/wp-password-bcrypt": "1.0.0",
+    "frozzare/digster": "~1.0"
   },
   "require-dev": {
     "squizlabs/php_codesniffer": "^2.5.1"
   },
   "extra": {
     "installer-paths": {
-      "web/content/mu-plugins/{$name}/": ["type:wordpress-muplugin"],
+      "web/content/mu-plugins/{$name}/": ["type:wordpress-muplugin", "frozzare/digster"],
       "web/content/plugins/{$name}/": ["type:wordpress-plugin"],
       "web/content/themes/{$name}/": ["type:wordpress-theme"]
     },
