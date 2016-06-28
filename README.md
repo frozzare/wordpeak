@@ -4,7 +4,7 @@ Experimental WordPress stack build on top of [Bedrock](https://roots.io/bedrock/
 
 ## The theme
 
-The theme use [Digster](https://github.com/frozzare/wp-digster) to render Twig views.
+The base theme use [Digster](https://github.com/frozzare/wp-digster) to render Twig views.
 
 ### style.css
 
