@@ -11,10 +11,26 @@ namespace WordPeak;
 function cache_add( $key, $value ) {
 	global $wp_object_cache;
 
-	// Get global cache prefix if it exists.
-	$prefix = isset( $wp_object_cache ) && isset( $wp_object_cache->global_prefix ) ? $wp_object_cache->global_prefix : '';
+	$object_cache = isset( $wp_object_cache ) && isset( $wp_object_cache->global_prefix );
+	$cache_prefix = '';
+	$blog_prefix  = '';
 
-	wp_cache_add( $key . '-' . md5( ABSPATH . '../' . theme_name() ), $value, $prefix . 'themes' );
+	// Get global cache prefix if it exists.
+	if ( $object_cache ) {
+		$cache_prefix = $wp_object_cache->global_prefix;
+
+		// Since we only have one theme we don't need a blog prefix for this key.
+		$blog_prefix = $wp_object_cache->blog_prefix;
+		$wp_object_cache->blog_prefix = '';
+	}
+
+	// Add theme information to the cache.
+	wp_cache_add( $key . '-' . md5( ABSPATH . '../' . theme_name() ), $value, $cache_prefix . 'themes' );
+
+	// Restore blog prefix if using object cache.
+	if ( $object_cache ) {
+		$wp_object_cache->blog_prefix = $blog_prefix;
+	}
 }
 
 /**
@@ -23,7 +39,7 @@ function cache_add( $key, $value ) {
  * @return string
  */
 add_filter( 'stylesheet_directory', function () {
-	$path = sprintf( '%s/../%s/templates', ABSPATH, theme_name() );
+	$path = sprintf( '%s../%s/templates', ABSPATH, theme_name() );
 
 	return apply_filters( 'wordpeak_stylesheet_directory', $path );
 } );
@@ -42,9 +58,12 @@ add_action( 'theme_root_uri', function() {
  *
  * @return string
  */
-add_filter( 'theme_root', function () {
+function theme_root() {
 	return apply_filters( 'wordpeak_theme_root', ABSPATH . '..' );
-} );
+}
+add_filter( 'theme_root', __NAMESPACE__ . '\\theme_root' );
+add_filter( 'option_template_root', __NAMESPACE__ . '\\theme_root' );
+add_filter( 'option_stylesheet_root', __NAMESPACE__ . '\\theme_root' );
 
 /**
  * Change theme name.
@@ -58,6 +77,11 @@ add_filter( 'template', __NAMESPACE__ . '\\theme_name' );
 add_filter( 'option_template', __NAMESPACE__ . '\\theme_name' );
 add_filter( 'option_stylesheet', __NAMESPACE__ . '\\theme_name' );
 add_filter( 'stylesheet', __NAMESPACE__ . '\\theme_name' );
+
+/**
+ * Turn of theme validation.
+ */
+add_filter( 'validate_current_theme', '__return_false' );
 
 /**
  * Add theme cache values.
@@ -75,7 +99,8 @@ add_action( 'init', function () {
 			'Name'        => 'Custom theme',
 			'Version'     => '1.0.0'
 		] ),
-		'template' => theme_name()
+		'template' => theme_name(),
+		'errors'   => []
 	] );
 } );
 
