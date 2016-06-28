@@ -8,7 +8,9 @@ namespace WordPeak;
  * @return string
  */
 add_filter( 'stylesheet_directory', function () {
-	return apply_filters( 'wordpeak_stylesheet_directory', ABSPATH . '/../app/templates' );
+	$path = sprintf( '%s/../%s/templates', ABSPATH, theme_name() );
+
+	return apply_filters( 'wordpeak_stylesheet_directory', $path );
 } );
 
 /**
