@@ -124,7 +124,7 @@ add_filter( 'wp_cache_themes_persistently', function( $cache_expiration, $cache_
 add_filter( 'wp_prepare_themes_for_js', function( $themes ) {
 	$screenshot = sprintf( '/%s/screenshot.png', theme_name() );
 
-	$themes[theme_name()]['screenshot'][0] = apply_filters( 'wordpeak_screenshot_uri', $screenshot );
+	$themes[theme_name()]['screenshot'][0] = apply_filters( 'wordpeak_theme_screenshot_uri', $screenshot );
 
 	return $themes;
 } );
