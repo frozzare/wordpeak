@@ -40,7 +40,7 @@ Default theme headers:
 
 ### screenshot.png
 
-You may not like that you're screenshot is in `app` directory, this can be changed with `wordpeak_theme_screenshot_uri` filter. For example, to use a screenshot that exists in `app` directory:
+Change theme screenshot uri. For example, to use a screenshot that exists in `app` directory:
 
 ```php
 add_filter( 'wordpeak_theme_screenshot_uri', function () {
