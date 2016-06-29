@@ -34,14 +34,34 @@ function cache_add( $key, $value ) {
 }
 
 /**
+ * Get the templates directory.
+ *
+ * @return string
+ */
+function templates_directory() {
+	$path = sprintf( '%s../%s/templates', ABSPATH, theme_name() );
+
+	return apply_filters( 'wordpeak_templates_directory', $path );
+}
+
+/**
  * Change stylesheet directory.
  *
  * @return string
  */
-add_filter( 'stylesheet_directory', function () {
-	$path = sprintf( '%s../%s/templates', ABSPATH, theme_name() );
+add_filter( 'stylesheet_directory', __NAMESPACE__ . '\\templates_directory' );
 
-	return apply_filters( 'wordpeak_stylesheet_directory', $path );
+/**
+ * Remove stylesheet directory filter on template include.
+ *
+ * @param  string $template
+ *
+ * @return string
+ */
+add_filter( 'template_include', function ( $template ) {
+	remove_filter( 'stylesheet_directory', __NAMESPACE__ . '\\templates_directory' );
+
+	return $template;
 } );
 
 /**
