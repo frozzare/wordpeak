@@ -43,12 +43,6 @@ function templates_directory() {
 
 	return apply_filters( 'wordpeak_templates_directory', $path );
 }
-
-/**
- * Change stylesheet directory.
- *
- * @return string
- */
 add_filter( 'stylesheet_directory', __NAMESPACE__ . '\\templates_directory' );
 
 /**
