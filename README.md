@@ -38,6 +38,16 @@ Default theme headers:
 'Version'     => '1.0.0'
 ```
 
+### screenshot.png
+
+You may not like that you're screenshot is in `app` directory, this can be changed with `wordpeak_screenshot_uri` filter. For example, to use a screenshot that exists in `content` directory:
+
+```php
+add_filter( 'wordpeak_screenshot_uri', function () {
+  return '/content/screenshot.png';
+} );
+```
+
 ## Folder structure
 
 - `web/app` is the theme directory

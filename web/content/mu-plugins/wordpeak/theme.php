@@ -87,9 +87,6 @@ add_filter( 'validate_current_theme', '__return_false' );
  * Add theme cache values.
  */
 add_action( 'init', function () {
-	// Add custom screenshot path.
-	cache_add( 'screenshot', apply_filters( 'wordpeak_screenshot_path', 'screenshot.png' ) );
-
 	// Add theme headers without a stylesheet file.
 	cache_add( 'theme', [
 		'headers' => apply_filters( 'wordpeak_theme_headers', [
@@ -116,3 +113,18 @@ add_action( 'init', function () {
 add_filter( 'wp_cache_themes_persistently', function( $cache_expiration, $cache_directory ) {
 	return $cache_directory === 'WP_Theme' ? true : $cache_expiration;
 }, 10, 2 );
+
+/**
+ * Prepare themes for JavaScript, add screenshot.
+ *
+ * @param  array $themes
+ *
+ * @return array
+ */
+add_filter( 'wp_prepare_themes_for_js', function( $themes ) {
+	$screenshot = sprintf( '/%s/screenshot.png', theme_name() );
+
+	$themes[theme_name()]['screenshot'][0] = apply_filters( 'wordpeak_screenshot_uri', $screenshot );
+
+	return $themes;
+} );
