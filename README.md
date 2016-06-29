@@ -48,6 +48,10 @@ Default theme headers:
 
 WordPeak store some information in the WordPress cache and with object cache we needed to fix some things for multisites and which group key should be used when. The cache function does support [WP Redis](https://github.com/pantheon-systems/wp-redis) from Pantheon, other object cache plugins may not work and may break the `style.css` cache.
 
+## Helper functions
+
+- `wp_is_dev` - Check whether currently running a live or dev environment.
+
 ## License
 
 MIT © [Fredrik Forsmo](https://github.com/frozzare)

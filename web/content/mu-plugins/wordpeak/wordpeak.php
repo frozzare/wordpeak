@@ -11,6 +11,7 @@
 
 $files = [
 	'bedrock.php',
+	'functions.php',
 	'plugins.php',
 	'theme.php',
 ];
