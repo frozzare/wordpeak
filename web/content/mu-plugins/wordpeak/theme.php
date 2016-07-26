@@ -135,8 +135,22 @@ add_filter( 'wp_cache_themes_persistently', function( $cache_expiration, $cache_
  *
  * @return array
  */
+/**
+ * Prepare themes for JavaScript, add screenshot.
+ *
+ * @param  array $themes
+ *
+ * @return array
+ */
 add_filter( 'wp_prepare_themes_for_js', function( $themes ) {
-	$themes[theme_name()]['screenshot'][0] = apply_filters( 'wordpeak_theme_screenshot_uri', '/content/screenshot.png' );
+	$path = '/content/screenshot.png';
+
+	if ( file_exists( get_template_directory().'/screenshot.png' ) ) {
+		$path = sprintf( '/%s/screenshot.png', theme_name() );
+	}
+
+	$themes[theme_name()]['screenshot'][0] = apply_filters( 'wordpeak_theme_screenshot_uri', $path );
 
 	return $themes;
 } );
+
