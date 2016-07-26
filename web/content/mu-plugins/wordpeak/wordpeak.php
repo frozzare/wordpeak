@@ -13,11 +13,18 @@ $files = [
 	'bedrock.php',
 	'functions.php',
 	'plugins.php',
-	'theme.php',
 ];
 
+// Add theme modify file if not multiple themes.
+if ( ! defined( 'WORDPEAK_MULTIPLE_THEMES' ) || ! WORDPEAK_MULTIPLE_THEMES ) {
+	$files[] = 'theme.php';
+}
+
+// Load all files.
 foreach ( $files as $file ) {
-	require_once __DIR__ . '/' . $file;
+	if ( file_exists( __DIR__ . '/' . $file ) ) {
+		require_once __DIR__ . '/' . $file;
+	}
 }
 
 unset( $file );
