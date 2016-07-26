@@ -142,8 +142,8 @@ add_action( 'init', function () {
 } );
 
 /**
- * Store `WP_Theme` cache persistently. Since only
- * one theme is used this is okey.
+ * Store some theme keys persistently.
+ * Since only one theme is used this is okey.
  *
  * @param  bool   $cache_expiration
  * @param  string $cache_directory
