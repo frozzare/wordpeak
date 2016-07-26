@@ -93,6 +93,15 @@ add_filter( 'option_stylesheet', __NAMESPACE__ . '\\theme_name' );
 add_filter( 'stylesheet', __NAMESPACE__ . '\\theme_name' );
 
 /**
+ * Modify allowed themes for multisites.
+ *
+ * @return array
+ */
+add_filter( 'pre_site_option_allowedthemes', function () {
+	return [theme_name()];
+} );
+
+/**
  * Turn of theme validation.
  */
 add_filter( 'validate_current_theme', '__return_false' );
