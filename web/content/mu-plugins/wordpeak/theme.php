@@ -145,7 +145,7 @@ add_filter( 'wp_cache_themes_persistently', function( $cache_expiration, $cache_
 add_filter( 'wp_prepare_themes_for_js', function( $themes ) {
 	$path = '/content/screenshot.png';
 
-	if ( file_exists( get_template_directory().'/screenshot.png' ) ) {
+	if ( file_exists( get_template_directory() . '/screenshot.png' ) ) {
 		$path = sprintf( '/%s/screenshot.png', theme_name() );
 	}
 
