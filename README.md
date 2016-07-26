@@ -2,7 +2,17 @@
 
 Experimental WordPress stack build on top of [Bedrock](https://github.com/roots/bedrock). Plugins may not work with this structure.
 
+## Multiple themes
+
+If you would like to create child themes you need to use multiple themes, so define `WORDPEAK_MULTIPLE_THEMES`, remove `web/app` and create `web/themes` with your themes.
+
+```php
+define( 'WORDPEAK_MULTIPLE_THEMES', true );
+```
+
 ## The theme
+
+> This is only valid if you use a single theme and not multiple themes.
 
 The base theme use [Digster](https://github.com/frozzare/wp-digster) to render Twig views.
 
