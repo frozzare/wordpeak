@@ -109,6 +109,7 @@ add_filter( 'pre_site_option_allowedthemes', function () {
 add_filter( 'pre_site_transient_theme_roots', function () {
 	$themes = [];
 	$themes[theme_name()] = theme_root();
+	
 	return $themes;
 } );
 
