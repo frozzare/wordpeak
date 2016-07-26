@@ -102,6 +102,17 @@ add_filter( 'pre_site_option_allowedthemes', function () {
 } );
 
 /**
+ * Set theme roots transient to be only app folder.
+ *
+ * @return array
+ */
+add_filter( 'pre_site_transient_theme_roots', function () {
+	$themes = [];
+	$themes[theme_name()] = theme_root();
+	return $themes;
+} );
+
+/**
  * Turn of theme validation.
  */
 add_filter( 'validate_current_theme', '__return_false' );
@@ -139,16 +150,9 @@ add_action( 'init', function () {
  * @return bool
  */
 add_filter( 'wp_cache_themes_persistently', function( $cache_expiration, $cache_directory ) {
-	return $cache_directory === 'WP_Theme' ? true : $cache_expiration;
+	return in_array( $cache_directory, ['search_theme_directories', 'WP_Theme'] ) ? true : $cache_expiration;
 }, 10, 2 );
 
-/**
- * Prepare themes for JavaScript, add screenshot.
- *
- * @param  array $themes
- *
- * @return array
- */
 /**
  * Prepare themes for JavaScript, add screenshot.
  *
