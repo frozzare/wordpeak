@@ -101,6 +101,11 @@ add_filter( 'validate_current_theme', '__return_false' );
  * Add theme cache values.
  */
 add_action( 'init', function () {
+	// Check for existing style before adding custom theme headers.
+	if ( file_exists( get_template_directory() . '/style.css' ) ) {
+		return;
+	}
+
 	// Add theme headers without a stylesheet file.
 	cache_add( 'theme', [
 		'headers' => apply_filters( 'wordpeak_theme_headers', [
