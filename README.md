@@ -4,11 +4,7 @@ Experimental WordPress stack build on top of [Bedrock](https://github.com/roots/
 
 ## Multiple themes
 
-If you would like to create child themes you need to use multiple themes, so define `WORDPEAK_MULTIPLE_THEMES`, remove `web/app` and create `web/themes` with your themes.
-
-```php
-define( 'WORDPEAK_MULTIPLE_THEMES', true );
-```
+If you would like to create child themes you need to use multiple themes, just create `web/themes` and delete `web/app` directory.
 
 ## The theme
 

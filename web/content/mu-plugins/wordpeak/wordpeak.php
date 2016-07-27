@@ -16,7 +16,7 @@ $files = [
 ];
 
 // Add theme modify file if not multiple themes.
-if ( ! defined( 'WORDPEAK_MULTIPLE_THEMES' ) || ! WORDPEAK_MULTIPLE_THEMES ) {
+if ( ! file_exists( ABSPATH . '/../themes' ) || ! is_dir( ABSPATH . '/../themes' ) ) {
 	$files[] = 'theme.php';
 }
 

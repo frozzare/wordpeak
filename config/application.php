@@ -72,12 +72,6 @@ define( 'DISABLE_WP_CRON', env( 'DISABLE_WP_CRON' ) ?: false );
 define( 'DISALLOW_FILE_EDIT', true );
 
 /**
- * WordPeak, multiple thems support.
- * Place themes in web/themes folder.
- */
-define( 'WORDPEAK_MULTIPLE_THEMES', false );
-
-/**
  * Define default theme.
  */
 define( 'WP_DEFAULT_THEME', 'app' );

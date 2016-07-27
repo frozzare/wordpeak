@@ -16,7 +16,7 @@ require_once __DIR__ . '/../config/application.php';
 global $wp_theme_directories;
 
 // Use different theme directory if multiple themes.
-if ( defined( 'WORDPEAK_MULTIPLE_THEMES' ) && WORDPEAK_MULTIPLE_THEMES ) {
+if ( file_exists( __DIR__ . '/../web/themes' ) && is_dir( __DIR__ . '/../web/themes' ) ) {
 	$wp_theme_directories = [ABSPATH . '../themes'];
 } else {
 	$wp_theme_directories = [ABSPATH . '../'];
