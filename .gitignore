@@ -6,6 +6,9 @@ web/content/upgrade
 web/content/uploads/*
 !web/content/uploads/.gitkeep
 
+# Themes folder
+web/themes/*
+
 # WordPress
 web/wp
 web/.htaccess
