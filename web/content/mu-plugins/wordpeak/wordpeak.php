@@ -15,9 +15,12 @@ $files = [
 	'plugins.php',
 ];
 
-// Add theme modify file if not multiple themes.
-if ( ! file_exists( ABSPATH . '/../themes' ) || ! is_dir( ABSPATH . '/../themes' ) ) {
+// Use different theme directory if multiple themes.
+if ( file_exists( __DIR__ . './web/themes' ) && is_dir( __DIR__ . '/../web/themes' ) ) {
+	register_theme_directory( ABSPATH . '../themes' );
+} else {
 	$files[] = 'theme.php';
+	register_theme_directory( ABSPATH . '../app' );
 }
 
 // Load all files.
