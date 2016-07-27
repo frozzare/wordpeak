@@ -9,7 +9,9 @@ $plugins = [
 /**
  * Add or remove plugins that should be loaded.
  *
- * @param array $plugins
+ * @param  array $plugins
+ *
+ * @return array
  */
 $plugins = apply_filters( 'wordpeak_plugins', $plugins );
 $plugins = is_array( $plugins ) ? $plugins : [];
