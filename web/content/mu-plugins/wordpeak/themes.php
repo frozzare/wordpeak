@@ -1,6 +1,6 @@
 <?php
 
-namespace WordPeak;
+namespace WordPeak\Themes;
 
 /**
  * Change theme root uri to themes uri.

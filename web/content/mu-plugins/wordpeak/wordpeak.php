@@ -9,6 +9,7 @@
  * License: MIT License
  */
 
+// Files that should be loaded.
 $files = [
 	'bedrock.php',
 	'functions.php',

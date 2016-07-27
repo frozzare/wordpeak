@@ -1,6 +1,6 @@
 <?php
 
-namespace WordPeak;
+namespace WordPeak\Theme;
 
 /**
  * Add theme cache value.

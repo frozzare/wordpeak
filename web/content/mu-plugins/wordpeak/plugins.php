@@ -1,7 +1,8 @@
 <?php
 
-namespace WordPeak;
+namespace WordPeak\Plugins;
 
+// Plugins that should be registered.
 $plugins = [
 	'foundation/foundation.php'
 ];

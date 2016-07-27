@@ -1,6 +1,6 @@
 <?php
 
-namespace WordPeak;
+namespace WordPeak\Bedrock;
 
 /**
  * Fix network admin URL to include the "/wp/" base.
